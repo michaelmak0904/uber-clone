@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, SafeAreaView, Image } from 'react-native'
+import { StyleSheet, Text, View, SafeAreaView, Image, TouchableOpacity } from 'react-native'
 import React from 'react'
 import tw from "tailwind-react-native-classnames"
 import NavOptions from '../components/NavOptions'
@@ -7,10 +7,13 @@ import { useDispatch } from 'react-redux'
 import { GOOGLE_MAPS_APIKEY } from "@env"
 import { setDestination, setOrigin } from "../slices/navSlice"
 import NavFavourites from '../components/NavFavourites';
+import { Icon } from 'react-native-elements';
+import { useNavigation } from '@react-navigation/native'
 
 const HomeScreen = () => {
 
     const dispatch = useDispatch();
+    const navigation = useNavigation()
 
     return (
         <SafeAreaView style={tw`bg-white h-full`}>
@@ -53,6 +56,7 @@ const HomeScreen = () => {
 
                 <NavOptions />
                 <NavFavourites />
+
             </View>
         </SafeAreaView>
     )
